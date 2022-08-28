@@ -10,6 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install react scripts for build
+        run: npm install react-scripts
+
       - name: Build
         run: npm run build
 
