@@ -1,19 +1,14 @@
 name: Deploy
-# on:
-#   push:
-#     branches: [ main ]
-on: [push]
+
+on:
+  push:
+    branches: [ main ]
 
 jobs:
   deploy-actions:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          github_token: ${{ secrets.GH_ACTIONS_PUSH_MAIN_TOKEN }}
-
-      - name: Install packages
-        run: npm install
 
       - name: Build
         run: npm run build
@@ -21,8 +16,5 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_ACTIONS_PUSH_MAIN_TOKEN }}
           publish_dir: ./build
-
-      # - name: Deploy app on gh pages
-      #   run: npm run deploy
