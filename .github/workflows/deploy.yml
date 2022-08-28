@@ -1,0 +1,16 @@
+name: Deploy
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install packages
+        run: npm install
+
+      - name: Deploy app on gh pages
+        run: npm run deploy
