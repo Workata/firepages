@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          github_token: ${{ secrets.GH_ACTIONS_PUSH_MAIN_TOKEN }}
 
       - name: Install packages
         run: npm install
 
       - name: Deploy app on gh pages
         run: npm run deploy
-        with:
-          github_token: ${{ secrets.GH_ACTIONS_PUSH_MAIN_TOKEN }}
