@@ -14,5 +14,10 @@ jobs:
       - name: Install packages
         run: npm install
 
+      - name: Add dummy git credentials
+      - run: |
+            git config --global user.email "you@example.com"
+            git config --global user.name "Your Name"
+
       - name: Deploy app on gh pages
         run: npm run deploy
