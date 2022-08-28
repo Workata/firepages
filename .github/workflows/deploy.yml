@@ -14,3 +14,5 @@ jobs:
 
       - name: Deploy app on gh pages
         run: npm run deploy
+        with:
+          github_token: ${{ secrets.GH_ACTIONS_PUSH_MAIN_TOKEN }}
